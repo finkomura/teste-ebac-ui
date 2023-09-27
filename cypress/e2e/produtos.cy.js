@@ -13,7 +13,7 @@ describe('funcionalidadepagina de produtos', () => {
         .contains('Ariel Roll')
         .click()
     });
-    it.only('deve adicionar ao carrinho', () => {
+    it('deve adicionar ao carrinho', () => {
        var quantidade = 3
         cy.get('[class="product-block grid"]').contains('Abominable').click()
 
@@ -22,5 +22,8 @@ describe('funcionalidadepagina de produtos', () => {
         cy.get('.input-text').clear().type(quantidade)
         cy.get('.single_add_to_cart_button').click()
         cy.get('.woocommerce-message').should('contain',' “Abominable Hoodie” foram adicionados no seu carrinho.')
+    });
+    it.only('deveadicionar produtos ao carrinho utilizando comandos customizados', () => {
+        cy.addProdutos('Abominable', 'S', 'Blue', 3)
     });
 });
