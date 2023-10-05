@@ -4,6 +4,7 @@ const perfil=require('../fixtures/perfil.json')
 context ('Funcionalidade Login', () =>{
     beforeEach(() => {
         cy.visit('minha-conta')
+
     });
     afterEach(() => {
         cy.screenshot()
